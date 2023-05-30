@@ -2,63 +2,63 @@
 using namespace std;
 
 
-bool 
-validerFormatNom(const string& p_nom)
+bool
+validerFormatNom (const string& p_nom)
 {
-    // Vérifie si le premier caractère est une lettre
-    if (isalpha(p_nom[0]))
+  // Vérifie si le premier caractère est une lettre
+  if (isalpha (p_nom[0]))
     {
-        int i = 1;
-        // Parcourt les caractères suivants
-        while (i < p_nom.length())
+      int i = 1;
+      // Parcourt les caractères suivants
+      while (i < p_nom.length ())
         {
-            // Vérifie si le caractère est une lettre
-            if (isalpha(p_nom[i]))
+          // Vérifie si le caractère est une lettre
+          if (isalpha (p_nom[i]))
             {
-                // Vérifie si c'est le dernier caractère du nom
-                if (i == p_nom.length() - 1)
+              // Vérifie si c'est le dernier caractère du nom
+              if (i == p_nom.length () - 1)
                 {
-                    // Le format du nom est valide
-                    return true;
+                  // Le format du nom est valide
+                  return true;
                 }
-                else
+              else
                 {
-                    // Passe au caractère suivant
-                    i++;
+                  // Passe au caractère suivant
+                  i++;
                 }
             }
             // Vérifie si le caractère est un tiret (-) ou un espace
-            else if (p_nom[i] == '-' || p_nom[i] == ' ')
+          else if (p_nom[i] == '-' || p_nom[i] == ' ')
             {
-                if (i < p_nom.length() - 1)
+              if (i < p_nom.length () - 1)
                 {
-                    // Vérifie si le caractère suivant est également un tiret ou un espace
-                    if (p_nom[i + 1] == '-' || p_nom[i + 1] == ' ')
+                  // Vérifie si le caractère suivant est également un tiret ou un espace
+                  if (p_nom[i + 1] == '-' || p_nom[i + 1] == ' ')
                     {
-                        // Deux tirets ou espaces consécutifs ne sont pas autorisés
-                        return false;
+                      // Deux tirets ou espaces consécutifs ne sont pas autorisés
+                      return false;
                     }
-                    else
+                  else
                     {
-                        // Passe au caractère suivant
-                        i++;
+                      // Passe au caractère suivant
+                      i++;
                     }
                 }
-                else
+              else
                 {
-                    // Le dernier caractère ne peut pas être un tiret ou un espace
-                    return false;
+                  // Le dernier caractère ne peut pas être un tiret ou un espace
+                  return false;
                 }
             }
-            else
+          else
             {
-                // Caractère invalide dans le nom
-                return false;
+              // Caractère invalide dans le nom
+              return false;
             }
         }
     }
-    // Le premier caractère n'est pas une lettre, le format du nom est invalide
-    return false;
+  // Le premier caractère n'est pas une lettre, le format du nom est invalide
+  return false;
 }
 
 
